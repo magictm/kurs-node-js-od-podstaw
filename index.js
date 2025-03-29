@@ -1,13 +1,25 @@
 // index.js
 
-// Importujemy zainstalowaną bibliotekę lodash
-const _ = require('lodash'); // _ to konwencjonalna nazwa dla lodash
+// Importujemy zainstalowany pakiet chalk (wersja 4)
+// require to sposób importowania modułów w standardzie CommonJS, domyślnym w Node.js
+const chalk = require('chalk');
 
-const numbers = [1, 5, 8, 10, 1, 5];
-const uniqueNumbers = _.uniq(numbers); // Używamy funkcji uniq z lodash
+// Używamy różnych funkcji chalk do stylizowania tekstu w konsoli
+console.log(chalk.blue('Witaj w świecie kolorowej konsoli!'));
+console.log(chalk.red.bold('Ten tekst jest czerwony i pogrubiony.'));
+console.log(chalk.green('To jest tekst na zielono.'));
+console.log(chalk.yellow.bgBlack('A to jest żółty tekst na czarnym tle.'));
+console.log(chalk.magentaBright.underline.italic('Można łączyć style!'));
 
-console.log(`Oryginalna tablica: ${numbers}`);
-console.log(`Unikalne liczby: ${uniqueNumbers}`);
+// Przykład bardziej złożony
+const error = chalk.bold.red;
+const warning = chalk.keyword('orange'); // Można używać nazw kolorów CSS
 
-const message = 'hello world from lodash';
-console.log(_.capitalize(message)); // Używamy funkcji capitalize
+console.log(error('Błąd: Coś poszło nie tak!'));
+console.log(warning('Ostrzeżenie: Sprawdź konfigurację.'));
+
+console.log(`
+  ${chalk.blue('Możemy')} ${chalk.red('tworzyć')} ${chalk.green(
+    'kolorowe'
+)} ${chalk.yellow('komunikaty!')}
+`);
